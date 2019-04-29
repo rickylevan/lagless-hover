@@ -11,8 +11,11 @@
 	</div>
 
 	<script>
-		console.log('script says hi');
+		console.log('script says hiiii');
 		document.body.style.cursor = 'default';
+
+		cursorBox = [0,0]; // I know, keeping it simple atm
+
 
 		for (let i = 0; i < 30; i++) {
 			let mycol = document.createElement("div");
@@ -20,20 +23,52 @@
 
 			for (let j = 0; j < 30; j++) {
 				let mydiv = document.createElement("div");
+
+				// right then down the graphical convention
+				mydiv.id = j.toString() + i.toString();
 				mydiv.style="height:20px;width:20px;background-color:rgb(0,50,80);text-align:center;vertical-align:middle;line-height:20px;"
 				mydiv.innerHTML = "0";
-				mydiv.addEventListener('mouseover', function () {
+				/*mydiv.addEventListener('mouseover', function () {
 					this.style="height:20px;width:20px;background-color:rgb(255, 255, 102);text-align:center;vertical-align:middle;line-height:20px"
 				})
 				mydiv.addEventListener('mouseout', function () {
 					this.style="height:20px;width:20px;background-color:rgb(0,50,80);text-align:center;vertical-align:middle;line-height:20px"
-				})			
+				})	*/		
 
 				mycol.append(mydiv);
 			}
 
 			document.getElementById('top').append(mycol);
 		}
+
+
+		document.getElementById('top').onmousemove = function(e) {
+			//console.log('mouse moved');
+			//console.log(e.clientX, e.clientY);
+			let box = [Math.floor(e.clientX / 20), Math.floor(e.clientY / 20)];
+			//console.log(box);
+
+			// nothing to do, still in same box
+			if (box[0] == cursorBox[0] && box[1] == cursorBox[1]) {
+				return;
+			} else {
+				let divId = box[0].toString() + box[1].toString();
+				document.getElementById(divId).style = "height:20px;width:20px;background-color:rgb(255, 255, 102);text-align:center;vertical-align:middle;line-height:20px";
+				let oldDivId = cursorBox[0].toString() + cursorBox[1].toString();
+				document.getElementById(oldDivId).style = "height:20px;width:20px;background-color:rgb(0, 50, 80);text-align:center;vertical-align:middle;line-height:20px";
+
+				cursorBox = box;
+			}
+		};
+
+
+
+
+
+
+
+
+
 
 
 						
