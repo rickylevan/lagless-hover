@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<div>
+	<div id=best1 style="height:40px;width:40px;background-color:black;"></div>
+	<div id=best2 style="height:40px;width:40px;background-color:black;"></div>
+	<div id=best3 style="height:40px;width:40px;background-color:black;"></div>
+
+	</div>
+
+	<script>
+		console.log('script says hi');
+
+		document.body.style.cursor = 'default';
+
+
+		document.getElementById('best1').addEventListener('mouseover', function () {
+			this.style="height:40px;width:40px;background-color:red;"
+		})
+		document.getElementById('best1').addEventListener('mouseout', function () {
+			this.style="height:40px;width:40px;background-color:black;"
+		})
+
+		document.getElementById('best2').addEventListener('mouseover', function () {
+			this.style="height:40px;width:40px;background-color:red;"
+		})
+		document.getElementById('best2').addEventListener('mouseout', function () {
+			this.style="height:40px;width:40px;background-color:black;"
+		})
+
+		document.getElementById('best3').addEventListener('mouseover', function () {
+			this.style="height:40px;width:40px;background-color:red;"
+		})
+		document.getElementById('best3').addEventListener('mouseout', function () {
+			this.style="height:40px;width:40px;background-color:black;"
+		})
+
+
+						
+	</script>
+
+</body>
+</html>
